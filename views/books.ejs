@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+	<title></title>
+</head>
+<body>
+	<div class="ui container segment">
+		<h2 class="ui header">Search Results:</h2>
+
+		<ul class="ui">
+			<% books.forEach(book=>{ 
+				const auths = book.authors.map(a=> a.name).join(', '); %>
+			<li> <%= book.title+'.  '+auths+', '+book.year   %>. </li>
+			<%}) %>
+		</ul>
+
+	</div>
+
+</body>
+</html>

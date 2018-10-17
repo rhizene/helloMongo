@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+	<title></title>
+</head>
+<body>
+	<div class="ui container">
+		<h2 class="ui header">Here are all the people:</h2>
+
+		<ul>
+			<%people.forEach(p=>{%>
+				<li> <div class="ui grid">
+					<div class="three column wide"> <a href="/person?name=<%= p.name %>"> 
+						<%= p.name %>
+					</a> </div>
+					<div class="three column wide"> <%= p.age   %> </div>
+				</div> </li>
+			<%})%>
+		</ul>
+
+
+		<div class="ui grid">
+			<a class="two wide column" href="/">Create New Person</a>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<html>
+<link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+<head>
+	<title></title>
+</head>
+<body>
+	
+	<div class="ui container">
+		<h2>Search Form</h2>
+		<form class="ui form segment" action="/search" method="post">
+			<div class="field">
+			    <label>Title</label>
+			    <input type="text" name="title" placeholder="Title">
+	  		</div>
+			<div class="field">
+					<label>Author name</label>
+					<input type="text" name="name" >
+				</div>
+			<div class="field">
+				<label>Year</label>
+				<input type="number" name="year" placeholder="Year">
+			</div>
+
+			<div class="fields">
+				<div class="four wide field">
+					<input type="radio" name="which" value="any">
+					<label>Any</label>
+				</div>
+				<div class="four wide field">
+					<input type="radio" name="which" value="all" checked>
+					<label>All</label>
+				</div>
+			</div>
+	
+			<hr>
+	  		<button class="ui button" type="submit">Submit</button>
+	  		<a href="/search" class="ui basic button">Search</a>
+		</form>
+	</div>
+	
+
+</body>
+</html>

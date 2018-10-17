@@ -1,0 +1,50 @@
+<html>
+<link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+<head>
+	<title></title>
+</head>
+<body>
+	
+	<div class="ui grid">
+		<div class="five wide column segment"></div>
+		<div class="five wide column segment">
+			<form class="ui form" action="/createbook" method="post">
+				<div class="field">
+				    <label>Title</label>
+				    <input type="text" name="title" placeholder="Title">
+		  		</div>
+				<div class="field">
+					<label>Year</label>
+					<input type="number" name="year" placeholder="Year">
+				</div>
+
+				<div class="ui segment">
+					<h3>Author 1</h3>
+					<div class="field">
+						<label>Name</label>
+						<input type="text" name="authors[0][name]" >
+					</div>
+					<div class="field">
+						<label>Age</label>
+						<input type="text" name="authors[0][age]">
+					</div>
+					<div class="field">
+						<label>Affiliation</label>
+						<input type="text" name="authors[0][affiliation]">
+					</div>
+				</div>
+				
+		  		<button class="ui button" type="submit">Submit</button>
+		  		<a href="/search" class="ui basic button">Search</a>
+			</form>
+		</div>
+		<div class="five wide column segment"></div>
+	</div>
+	
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <script src="/semantic/dist/semantic.min.js"></script>
+</body>
+</html>

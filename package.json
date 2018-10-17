@@ -1,0 +1,20 @@
+{
+  "name": "hellomongo",
+  "version": "1.0.0",
+  "description": "EDx Programming for the Web with JS Week 4: Databases",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nichol D",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "gulp-clone": "1.0.0",
+    "mongoose": "^5.3.4",
+    "semantic-ui": "^2.4.1"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,98 @@
+<!doctype html>
+<!-- user-facing, api calling -->
+<html>
+<link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+<head>
+	<title>Book Search</title>
+</head>
+<body>
+	
+	<div class="ui grid">
+		<div id="results" class="ten wide column">
+		</div>
+		<div class="six wide column">
+			<h3>Search Form</h3>
+			<form class="ui form segment" action="/search" method="post">
+				<div class="field">
+				    <label>Title</label>
+				    <input type="text" name="title" placeholder="Title">
+		  		</div>
+				<div class="field">
+						<label>Author name</label>
+						<input type="text" name="author" >
+					</div>
+				<div class="field">
+					<label>Year</label>
+					<input type="number" name="year" placeholder="Year">
+				</div>
+
+				
+			</form>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="text/javascript">
+  	'use strict'
+  	// const apiUrl = 'localhost:3000/api';
+  	// const apiUrl = '127.0.0.1:3000/api';
+  	const apiUrl = 'http://localhost:3000/api';
+  	const title = $("input[name='title']");
+	const author = $("input[name='author']");
+	const year = $("input[name='year']");
+	const results = $("div#results");
+
+	$('input').on('change input textInput', ()=>{
+		const query = [];
+		
+		const theTitle  = title.val();
+		const theAuthor = author.val();
+		const theYear   = year.val();
+		if(theTitle ) query.push('title=' + encodeURIComponent(theTitle) );
+		if(theAuthor ) query.push('author=' + encodeURIComponent(theAuthor) );
+		if(theYear ) query.push('year=' + encodeURIComponent(theYear) );
+
+		const reqUrl = apiUrl+'?'+query.join('&');
+		console.log('reqUrl: ', reqUrl)
+
+		axios.get(reqUrl)
+		.then(function (response) {
+			const b = response.data || {};
+			results.html('');
+			let content  = '';
+			b.books.forEach(item=>{
+				content  += '<li><i>'+item.title+'</i>. ';
+				item.authors.forEach(author=>{
+					content+= author.name+', ';
+				})
+				content+= item.year+'.</li>';
+			});
+			results.append('<ul>'+content+'</ul> <br><br> <h1>'+b.books.length+' Book(s) :)</h1>');
+		})
+		.catch(function (error) {
+			console.log('catch: ', error);
+		})
+
+		// $.getJSON( reqUrl, (b, stats)=>{
+		// 	console.log('stats: ', stats);
+		// 	console.log('b: ', b);
+		// 	results.html('');
+		// 	b.books.forEach(item=>{
+		// 		/*TODO append as fragment*/
+		// 		// results.append('<li>'+item.title+'</li>')
+		// 		let content  = '<i>'+item.title+'</i>. ';
+		// 		item.authors.forEach(author=>{
+		// 			content+= author.name+', ';
+		// 		})
+		// 		content+= item.year+'.';
+		// 		results.append('<li>'+content+'</li>');
+		// 		console.log(content);
+		// 	});
+		// })
+	})
+  </script>
+</body>
+</html>

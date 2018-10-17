@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+	<title></title>
+</head>
+<body>
+	<div class="ui container">
+
+		<div class="ui grid">
+		<div class="row">
+			<form class="ui form four wide column" action="/update" method="post">
+			<div class="field">
+				<label>Name</label> <span><%= person.name   %></span>
+				<input type="hidden" name="username" value="<%= person.name   %>">
+			</div>
+
+			<div class="field">
+				<label>Age</label>  <input type="number" name="age" value="<%= person.age   %>">
+			</div>
+
+			<hr>
+			<input class="ui button" type="submit" value="Update">
+		</form>
+		</div>	
+			<a class="two wide column" href="/">Create New Person</a>
+			<a class="two wide column" href="/all">Show All</a>
+		</div>	
+	</div>
+
+</body>
+</html>

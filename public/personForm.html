@@ -1,0 +1,35 @@
+<html>
+<link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+<head>
+	<title></title>
+</head>
+<body>
+	
+	<div class="ui grid">
+		<div class="five wide column"></div>
+		<div class="five wide column ui segment">
+			<form class="ui form" action="/create" method="post">
+				<div class="field">
+				    <label>Name</label>
+				    <input type="text" name="name" placeholder="First Name">
+		  		</div>
+				<div class="field">
+					<label>Age</label>
+					<input type="number" name="age" placeholder="Age">
+				</div>
+				
+		  		<button class="ui button" type="submit">Submit</button>
+		  		<a class="ui basic teal button" href='/all'>Show All</a>
+
+			</form>
+		</div>
+		<div class="five wide column"></div>
+	</div>
+	
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <script src="/semantic/dist/semantic.min.js"></script>
+</body>
+</html>
